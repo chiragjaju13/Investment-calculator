@@ -49,6 +49,37 @@
   font-size: 0.85em;
 }
 
+.infoBtn {
+  background: transparent;
+  border: 1px solid var(--blue-pale);
+  color: var(--blue);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.infoBtn:hover {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.infoBtn:focus {
+  outline: 2px solid rgba(34, 76, 135, 0.4);
+  outline-offset: 1px;
+}
+
 .hint {
   font-size: 0.68rem;
   color: var(--grey);

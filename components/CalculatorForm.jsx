@@ -4,7 +4,9 @@
  * via the useCalculator hook.
  */
 
+import { useState } from 'react';
 import SliderField from './SliderField';
+import ExplanationModal from './ExplanationModal';
 import styles from '../styles/CalculatorForm.module.css';
 
 /**
@@ -15,6 +17,8 @@ import styles from '../styles/CalculatorForm.module.css';
  * @param {function} props.onSubmit   form submit handler
  */
 export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
+  const [activeModal, setActiveModal] = useState(null); // 'inflation' | 'return' | null
+
   return (
     <section className={styles.card} aria-labelledby="inputs-heading">
       <div className={styles.cardHeader}>
@@ -123,6 +127,7 @@ export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
             hint="How much prices are expected to rise per year"
             hintDotLabel="Inflation assumption"
             error={errors.inflationRate}
+            onInfoClick={() => setActiveModal('inflation')}
           />
 
           {/* ── Return Assumption ── */}
@@ -139,6 +144,7 @@ export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
             hint="Expected annual rate of return on investments"
             hintDotLabel="Return assumption"
             error={errors.returnRate}
+            onInfoClick={() => setActiveModal('return')}
           />
 
           <button
@@ -150,6 +156,44 @@ export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
           </button>
         </form>
       </div>
+
+      <ExplanationModal
+        isOpen={activeModal === 'inflation'}
+        onClose={() => setActiveModal(null)}
+        title="What is Inflation?"
+        content={
+          <>
+            <p>
+              Think of <span className={styles.highlight}>inflation</span> as the gradual increase in the price of things over time.
+            </p>
+            <p>
+              For example, if a cup of coffee costs <strong>₹100</strong> today, with a <strong>6%</strong> inflation rate, it will cost <strong>₹106</strong> next year. The value of your money decreases over time because things become more expensive.
+            </p>
+            <p>
+              When planning your goals, we estimate how much things will cost <span className={styles.highlight}>in the future</span> so that your investments stay ahead of rising prices.
+            </p>
+          </>
+        }
+      />
+
+      <ExplanationModal
+        isOpen={activeModal === 'return'}
+        onClose={() => setActiveModal(null)}
+        title="What is Return Assumption?"
+        content={
+          <>
+            <p>
+              The <span className={styles.highlight}>Return Assumption</span> is the percentage of profit or income you expect your investments to grow by each year.
+            </p>
+            <p>
+              Different types of investments have different expected returns. For instance, putting money in a savings account might yield <strong>4-6%</strong>, while investing in mutual funds might yield <strong>10-14%</strong> over the long term.
+            </p>
+            <p>
+              A higher return rate means your money will grow faster, but higher returns usually come with higher risks.
+            </p>
+          </>
+        }
+      />
     </section>
   );
 }

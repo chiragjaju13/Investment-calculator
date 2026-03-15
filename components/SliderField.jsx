@@ -20,6 +20,7 @@ import styles from '../styles/CalculatorForm.module.css';
  * @param {string}   props.hint        Helper text
  * @param {string}   [props.error]     Validation error message
  * @param {string}   props.hintDotLabel  Screen-reader label for the dot
+ * @param {function} [props.onInfoClick] Optional callback for when the info button is clicked
  */
 export default function SliderField({
   id,
@@ -34,6 +35,7 @@ export default function SliderField({
   hint,
   error,
   hintDotLabel,
+  onInfoClick,
 }) {
   const errorId = `${id}-error`;
   const hintId  = `${id}-hint`;
@@ -47,6 +49,17 @@ export default function SliderField({
       <label htmlFor={id} className={styles.label}>
         <span className={`${styles.legendDot} ${styles[dotClass]}`} aria-hidden="true" />
         {label}
+        {onInfoClick && (
+          <button
+            type="button"
+            className={styles.infoBtn}
+            onClick={onInfoClick}
+            aria-label={`More info about ${label}`}
+            title={`More info about ${label}`}
+          >
+            <span aria-hidden="true">i</span>
+          </button>
+        )}
         <span className={styles.required} aria-label="required"> *</span>
       </label>
 
