@@ -38,6 +38,15 @@ export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
           <div className={styles.field}>
             <label htmlFor="goal-cost" className={styles.label}>
               Current Cost of Goal
+              <button
+                type="button"
+                className={styles.infoBtn}
+                onClick={() => setActiveModal('presentCost')}
+                aria-label="More info about Current Cost of Goal"
+                title="More info about Current Cost of Goal"
+              >
+                <span aria-hidden="true">i</span>
+              </button>
               <span className={styles.required} aria-label="required"> *</span>
             </label>
             <div className={styles.inputWrap}>
@@ -77,6 +86,15 @@ export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
           <div className={styles.field}>
             <label htmlFor="years" className={styles.label}>
               Years to Goal
+              <button
+                type="button"
+                className={styles.infoBtn}
+                onClick={() => setActiveModal('years')}
+                aria-label="More info about Years to Goal"
+                title="More info about Years to Goal"
+              >
+                <span aria-hidden="true">i</span>
+              </button>
               <span className={styles.required} aria-label="required"> *</span>
             </label>
             <div className={styles.inputWrap}>
@@ -190,6 +208,38 @@ export default function CalculatorForm({ fields, errors, onChange, onSubmit }) {
             </p>
             <p>
               A higher return rate means your money will grow faster, but higher returns usually come with higher risks.
+            </p>
+          </>
+        }
+      />
+
+      <ExplanationModal
+        isOpen={activeModal === 'presentCost'}
+        onClose={() => setActiveModal(null)}
+        title="What is Current Cost of Goal?"
+        content={
+          <>
+            <p>
+              The <span className={styles.highlight}>Current Cost of Goal</span> is how much your financial goal would cost if you were to pay for it <strong>today</strong>.
+            </p>
+            <p>
+              Whether it's buying a house, paying for education, or taking a vacation, start by finding out its price in today's money. We use this figure, along with inflation, to calculate how much it will cost in the future.
+            </p>
+          </>
+        }
+      />
+
+      <ExplanationModal
+        isOpen={activeModal === 'years'}
+        onClose={() => setActiveModal(null)}
+        title="What is Years to Goal?"
+        content={
+          <>
+            <p>
+              <span className={styles.highlight}>Years to Goal</span> simply means how many years away you are from needing the money.
+            </p>
+            <p>
+              This is your <strong>Time Horizon</strong>. A longer time horizon means your investments have more time to grow, allowing compound interest to work in your favour.
             </p>
           </>
         }

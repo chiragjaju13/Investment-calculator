@@ -131,6 +131,7 @@
   transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 .input::-webkit-outer-spin-button,
 .input::-webkit-inner-spin-button {
