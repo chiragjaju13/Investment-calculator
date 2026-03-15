@@ -1,0 +1,65 @@
+/* ── Header ───────────────────────────────────────── */
+.header {
+  width: 100%;
+  background: var(--blue);
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.headerMark {
+  width: 36px;
+  height: 36px;
+  background: var(--red);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerTitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.headerSubtitle {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.70);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* ── Main layout ──────────────────────────────────── */
+.main {
+  width: 100%;
+  max-width: 960px;
+  padding: 32px 20px 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 20px 16px 48px;
+  }
+}
+
+/* ── Footer ───────────────────────────────────────── */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.65rem;
+  color: var(--grey);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}

@@ -1,0 +1,27 @@
+﻿
+> investment-calculator@1.0.0 build
+> next build
+
+  Γû▓ Next.js 14.2.3
+
+   Linting and checking validity of types ...
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Collecting page data ...
+   Generating static pages (0/3) ...
+ Γ£ô Generating static pages (3/3)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (pages)                             Size     First Load JS
+Γöî Γùï /                                     4.85 kB        83.5 kB
+Γö£   Γöö css/cb8c51e27a7c4046.css            2.27 kB
+Γö£   /_app                                 0 B            78.6 kB
+Γöö Γùï /404                                  180 B          78.8 kB
++ First Load JS shared by all             79.2 kB
+  Γö£ chunks/framework-ecc4130bc7a58a64.js  45.2 kB
+  Γö£ chunks/main-48a2be0192cdda09.js       32 kB
+  Γöö other shared chunks (total)           2 kB
+
+Γùï  (Static)  prerendered as static content
+

@@ -1,0 +1,77 @@
+/* ── CSS Custom Properties ─────────────────────────── */
+:root {
+  --blue:       #224c87;
+  --blue-light: #2d62ad;
+  --blue-pale:  #e8eef8;
+  --red:        #da3832;
+  --red-light:  #f9e9e8;
+  --grey:       #919090;
+  --grey-light: #f4f4f4;
+  --grey-mid:   #d8d8d8;
+  --white:      #ffffff;
+  --text-dark:  #1a1a1a;
+  --text-mid:   #444444;
+  --radius:     6px;
+  --shadow:     0 2px 12px rgba(34, 76, 135, 0.10);
+  --transition: 0.2s ease;
+}
+
+/* ── Reset & Base ─────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Montserrat, Arial, Verdana, sans-serif;
+  background: #f0f4fb;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Focus visible (WCAG) ─────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ── Skip link (accessibility) ────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: var(--blue);
+  color: var(--white);
+  padding: 10px 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 9999;
+  border-radius: 0 0 var(--radius) 0;
+  text-decoration: none;
+  transition: top var(--transition);
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── ARIA live region (visually hidden) ───────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
